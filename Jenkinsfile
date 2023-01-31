@@ -33,16 +33,16 @@ pipeline{
             steps{
                    script {
 
-                def NexusRepo = Version.endsWith("SNAPSHOT") ? "VinaysDevOpsLab-SNAPSHOT" : "VinaysDevOpsLab-RELEASE"
+                def NexusRepo = Version.endsWith("SNAPSHOT") ? "vinaysdevops-SNAPSHOT" : "vinaysdevopslab-release"
 
                 nexusArtifactUploader artifacts: 
                 [[artifactId: "${ArtifactId}", 
                 classifier: '', 
                 file: "target/${ArtifactId}-${Version}.war", 
                 type: 'war']], 
-                credentialsId: '35e9b26e-269a-4804-a70d-6b2ec7a608ce', 
+                credentialsId: 'be6dbfc8-abd6-4ba3-800b-df6217b98c6e', 
                 groupId: "${GroupId}", 
-                nexusUrl: '172.20.10.140:8081', 
+                nexusUrl: '172.20.10.195:8081', 
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: "${NexusRepo}", 
