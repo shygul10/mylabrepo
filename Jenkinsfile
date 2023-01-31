@@ -33,9 +33,18 @@ pipeline{
                 nexusArtifactUploader artifacts: [[artifactId: 'VinayDevOpsLab', classifier: '', file: 'target/VinayDevOpsLab-0.0.4-SNAPSHOT.war', type: 'war']], credentialsId: 'be6dbfc8-abd6-4ba3-800b-df6217b98c6e', groupId: 'com.vinaysdevopslab', nexusUrl: '172.20.10.195:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'vinaysdevops-SNAPSHOT', version: '0.0.4-SNAPSHOT'
 }
         }
+        // Stage 4 : Print some information
+        stage ('Print Environment variables'){
+                    steps {
+                        echo "Artifact ID is '${ArtifactId}'"
+                        echo "Version is '${Version}'"
+                        echo "GroupID is '${GroupId}'"
+                        echo "Name is '${Name}'"
+                    }
+                }
 
 
-        // stage4 : Deploying
+        // stage 5 : Deploying
         stage ('Deploy'){
             steps {
                 echo 'deploying.....'
